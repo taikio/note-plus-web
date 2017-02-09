@@ -1,0 +1,63 @@
+
+<div class="container-fluid">
+	<div class="row">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="col-md-3 col-sm-3 col-xs-3">
+				<div class="back">
+					<a ui-sref="list"><i class="fa fa-chevron-left"></i>&nbsp;&nbsp;</a>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-6">
+				<div align="center" class="title">Note Plus</div>
+			</div>
+			<div class="col-md-3 col-sm-3 col-xs-3">
+
+			</div>
+		</nav>
+	</div>
+	<br><br><br>	
+
+	<form name="noteForm" class="form-horizontal">
+		<div class="form-group">
+			<div class="col-md-12">
+				<input type="text" name="titulo" class="material-input" placeholder="Titulo" ng-model="note.title" ng-maxlength="34" ng-required="true">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-12">
+					<textarea class="material-input" name="descricao" placeholder="Descrição" rows="5" ng-model="note.description" ng-required="true">
+						
+					</textarea>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-12">
+				<select class="form-control" name="category" ng-model="category" ng-required="true">
+					<option value="">Selecione a categoria</option>
+					<option value="Empresarial">Empresarial</option>
+					<option value="Pessoal">Pessoal</option>
+					<option value="Acadêmico">Acadêmico</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-12">
+				<button class="btn btn-block btn-primary" ng-click="save(note)" ng-disabled="loading || noteForm.titulo.$invalid || noteForm.descricao.$invalid || noteForm.category.$invalid">
+					<i class="fa fa-floppy-o"></i>&nbsp; <b>Salvar</b>
+				</button>
+			</div>
+			<!--<div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-3 col-sm-offset-3 col-xs-offset-3" ng-show="loading">
+				<img src="images/ellipsis.gif" class="img-responsive center-block">
+			</div>-->
+			<div class="col-md-12 alert alert-danger" ng-show="noteForm.titulo.$invalid && noteForm.titulo.$dirty" style="margin-top: 15px;">
+				<p align="center"><i class="fa fa-warning"></i> O título não pode ser tão longo!</p>
+			</div>
+			<np-loading loading="loading"></np-loading>
+			
+		</div>
+	</form>
+
+
+
+</div>
+

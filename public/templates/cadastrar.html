@@ -1,0 +1,51 @@
+<style type="text/css">
+    body a {
+        color: #29b6f6;
+        text-decoration: none;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                <div class="back">
+                    <a ui-sref="login"><i class="fa fa-chevron-left"></i>&nbsp;&nbsp;</a>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+                <div class="row">
+                    <div align="center" class="title">Nova Conta</div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+            </div>
+        </nav>
+    </div>
+    <br><br><br>
+
+    <form class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-8 col-sm-10 col-xs-10 col-md-offset-2 col-sm-offset-1 col-xs-offset-1">
+                <input type="text" class="material-input" placeholder="Usuário" ng-model="user.username">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-8 col-sm-10 col-xs-10 col-md-offset-2 col-sm-offset-1 col-xs-offset-1">
+                <input type="email" class="material-input" placeholder="E-mail" ng-model="user.email">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-8 col-sm-10 col-xs-10 col-md-offset-2 col-sm-offset-1 col-xs-offset-1">
+                <input type="password" class="material-input" placeholder="Senha" ng-model="user.password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-8 col-sm-10 col-xs-10 col-md-offset-2 col-sm-offset-1 col-xs-offset-1">
+                <a role="button" class="btn btn-block btn-primary" ng-click="cadastrar(user)">Confirmar</a>
+            </div>
+        </div>
+    </form>
+
+    <np-loading loading="loading"></np-loading>
+</div>

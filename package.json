@@ -1,0 +1,21 @@
+{
+	"name": "note-plus"
+	, "description": "Note Plus"
+	, "version": "0.0.1"
+	, "private": true
+	, "scripts": {
+		"start": "node app.js"
+	}
+	, "main": "app.js"
+	, "dependencies": {
+		"express": "~3.3.3"
+		, "ejs": "~0.8.4"
+		, "bcrypt-nodejs": "~0.0.3"
+		, "body-parser": "~1.13.3"
+		, "cors": "~2.7.1"
+		, "debug": "~2.2.0"
+		, "jade": "~1.11.0"
+		, "jsonwebtoken": "~6.2.0"
+		, "mongoose": "~4.4.17"
+	}
+}

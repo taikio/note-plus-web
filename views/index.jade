@@ -1,0 +1,40 @@
+doctype html
+html(lang='pt-br', ng-app='Note')
+	head
+	meta(charset='utf-8')
+	meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+	title Note Plus
+
+	link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+	link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap-theme.min.css')
+	link(rel='stylesheet' href='/bower_components/components-font-awesome/css/font-awesome.min.css')
+
+	link(rel='stylesheet' href='/bower_components/angular-ui-bootstrap/dist/ui-bootstrap-csp.css')
+	link(rel='stylesheet' href='/stylesheets/client.css')
+	link(rel='shortcut icon' href='/images/note-plus-logo.png')
+	script(src='/bower_components/angular/angular.min.js')
+	script(src='/bower_components/angular-ui-router/release/angular-ui-router.min.js')
+	script(src='/bower_components/angular-sanitize/angular-sanitize.min.js')
+	script(src='/bower_components/angular-ui-bootstrap/dist/ui-bootstrap.js')
+	script(src='/bower_components/angular-local-storage/dist/angular-local-storage.min.js')
+	script(src='/bower_components/local-forage/local-forage.js')
+	script(src='/javascripts/module.js')
+	script(src='/javascripts/routes.js')
+	script(src='/javascripts/login.controller.js')
+	script(src='/javascripts/account.controller.js')
+	script(src='/javascripts/noteList.controller.js')
+	script(src='/javascripts/category.controller.js')
+	script(src='/javascripts/note.controller.js')
+	script(src='/javascripts/newNote.controller.js')
+	script(src='/javascripts/cadastrar.controller.js')
+	script(src='/javascripts/editar.controller.js')
+	script(src='/javascripts/db.service.js')
+	script(src='/javascripts/note.service.js')
+	script(src='/loading/loading.directive.js')
+	script(src='/javascripts/filters.js')
+
+	body
+
+
+
+	div(ui-view)

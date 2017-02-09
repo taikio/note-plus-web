@@ -1,0 +1,112 @@
+
+
+<div class="container-fluid">
+	<div class="row">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+				<div class="back">
+					<!--<a ui-sref="category"><img src="images/back.png" width="18px">&nbsp;&nbsp;</a>-->
+					<a href="" ng-click="show = true"><i class="fa fa-bars"></i>&nbsp;&nbsp;</a>
+				</div>
+			</div>
+			<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+				<div class="title" align="center">Note Plus</div>
+			</div>
+			<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+				<div class="back">
+					<a href="" class="pull-right" ng-click="showSearch = !showSearch">
+							<i class="fa" ng-class="{'fa-search':!showSearch, 'fa-times':showSearch}"></i>
+					</a>
+				</div>
+			</div>
+		</nav>
+		<br><br><br>
+		<div class="col-xs-12 search" ng-show="showSearch">
+			<div class="row">
+				<div class="col-xs-1">
+					<div align="center">
+						<span class="fa fa-search"></span>
+					</div>
+				</div>
+				<div class="col-xs-11">
+					<form name="searchForm">
+						<div class="form-group">
+							<input type="text" class="material-input" ng-model="search" ng-model-options="{updateOn: 'default', debounce: 500}">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="list-group" ng-hide="loading">
+			<button  class="list-group-item" ng-repeat="note in notes | filter:search" ng-click="selectNote(note)">
+				<b>{{note.title}}</b>
+				<br>
+				<span style="font-size: 11px;">
+					<b>{{note.date | date: 'dd/MM/yyyy'}}</b>
+				</span>
+				<i class="fa fa-chevron-right pull-right" style="font-size: 18px; margin-top: -12px;"></i>
+			</button>
+		</div>
+		<!-- ================= Botão adicionar ==================== -->
+		<button class="btn btn-adicionar" ng-click="addNote()">
+			<i class="fa fa-plus"></i>
+		</button>
+		<!-- ================= Botão adicionar ==================== -->
+		<!-- ================= Imagem de Loading ==================== -->
+		<np-loading loading="loading"></np-loading>
+		<!-- ================= Imagem de Loading ==================== -->
+		<!-- ================= Mensagem de erro ===================== -->
+		<h4 align="center" ng-show="notes.length <= 0 && !loading">
+			<i class="fa fa-warning"></i>&nbsp;{{errorMessage}}
+		</h4>
+		<!-- ================= Mensagem de erro ===================== -->
+		<!-- =================  layout do menu lateral ====================== -->
+		<aside class="side-menu col-md-4 col-lg-4 col-sm-6 col-xs-10" ng-class="{'active-navbar' : show}">
+			<div class="row">
+				<div class="col-xs-12 side-menu-header">
+					<center><span class="side-menu-header-title" ng-bind="user"></span></center>
+					<span class="pull-right btn-fechar" ng-click="show = false">
+						<a href=""  ng-click="show = false"><i class="fa fa-times"></i></a>
+					</span>
+				</div>
+			</div>
+
+			<div class="row">
+				<h5 class="page-header" align="center">Categorias</h5>
+
+				<div class="list-group">
+					<button  class="list-group-item side-menu-item" ng-class="{'side-menu-item-active': title == 'Empresarial'}"  ng-click="selectCategory(1)">
+						<i class="fa fa-briefcase"></i> <b>Empresarial</b>
+						<div class="badge empty pull-right" ng-class="{'non-empty': categories[0].amount > 0}">{{categories[0].amount}}</div>
+					</button>
+					<button  class="list-group-item side-menu-item" ng-class="{'side-menu-item-active': title == 'Pessoal'}"  ng-click="selectCategory(2)">
+						<i class="fa fa-user"></i> <b>Pessoal</b>
+						<div class="badge empty pull-right" ng-class="{'non-empty': categories[1].amount > 0}">{{categories[1].amount}}</div>
+					</button>
+					<button  class="list-group-item side-menu-item" ng-class="{'side-menu-item-active': title == 'Acadêmico'}"  ng-click="selectCategory(3)">
+						<i class="fa fa-mortar-board"></i> <b>Acadêmico</b>
+						<div class="badge empty pull-right" ng-class="{'non-empty': categories[2].amount > 0}">{{categories[2].amount}}</div>
+					</button>
+				</div>
+
+				<h5 class="page-header" align="center">Configurações</h5>
+
+				<div class="list-group">
+					<button  class="list-group-item side-menu-item"  ng-click="account()">
+						<i class="fa fa-lock"></i>&nbsp;  <b>Alterar Senha</b>
+					</button>
+					<button  class="list-group-item side-menu-item"  ng-click="syncNotes()">
+						<i class="fa fa-refresh"></i>&nbsp; <b>Sincronizar</b></a>
+					</button>
+					<button  class="list-group-item side-menu-item"  ng-click="logOut()">
+						<i class="fa fa-sign-out"></i>&nbsp; <b>Sair</b></a></li>
+					</button>
+				</div>
+			</div>
+		</aside>
+		<!-- =================  layout do menu lateral ====================== -->
+		<!--<span ng-bind-html="obj.template"></span>-->
+
+	</div>
+</div>

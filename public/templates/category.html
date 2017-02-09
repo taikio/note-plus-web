@@ -1,0 +1,61 @@
+<div class="container-fluid">
+	<div class="row">
+
+		<nav class="navbar navbar-default">
+			<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4"></div>
+
+			<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+				<div align="center" class="title">Note Plus</div>
+			</div>
+			<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4 ">
+				<div class="title pull-right" uib-dropdown>
+					<a href="" id="menu" uib-dropdown-toggle class="btn btn-xs">
+						<!--<img src="../images/menu.png"  height="25px">-->
+						<span class="glyphicon glyphicon-cog menu-item"></span>
+					</a>
+
+					<ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="menu">
+
+						<li role="menuitem">
+							<a href="" ng-click="account()"><i class="glyphicon glyphicon-lock"></i>&nbsp; Alterar Senha</a>
+						</li>
+						<li role="separator" class="divider"></li>
+						<li role="menuitem">
+							<a href="" ng-click="syncNotes()"><i class="glyphicon glyphicon-refresh"></i>&nbsp; Sincronizar</a>
+						</li>
+						<li role="separator" class="divider"></li>
+						<li role="menuitem"><a href="" ng-click="logOut()"><i class="glyphicon glyphicon-log-out"></i>&nbsp; Sair</a></li>
+
+					</ul>
+				</div>
+			</div>
+
+		</nav>
+
+		<div class="list-group" ng-hide="loading">
+			<button type="button" class="list-group-item" ng-repeat="category in categories" ng-click="selectCategory(category.id)">
+
+				<i class="glyphicon glyphicon-briefcase" ng-if="category.name == 'Empresarial'"></i>
+				<i class="glyphicon glyphicon-user" ng-if="category.name == 'Pessoal'"></i>
+				<i class="glyphicon glyphicon-education" ng-if="category.name == 'Acadêmico'"></i>
+				
+				{{category.name}}
+
+				<div class="badge empty pull-right" ng-class="{'non-empty': category.amount > 0,'error': errorMessage != ''}" >
+					{{category.amount}}
+				</div>
+			</button>
+
+		</div>
+
+		<div class="col-xs-12" ng-show="loading">
+			<br><br>
+			<center><img src="images/ring.gif"></center>
+		</div>
+
+		<h4 align="center" ng-show="errorMessage != '' ">
+			<i class="glyphicon glyphicon-ban-circle"></i>&nbsp;{{errorMessage}}
+		</h4>
+
+	</div>
+</div>

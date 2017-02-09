@@ -1,0 +1,49 @@
+
+<div class="container-fluid">
+	<div class="row">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+				<div class="back">
+					<a ui-sref="list"><i class="fa fa-chevron-left"></i>&nbsp;&nbsp;</a>
+				</div>
+			</div>
+			<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+				<div align="center" class="title">Note Plus</div>
+			</div>
+			<div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
+				<div class="title pull-right" uib-dropdown>
+					<a href="" id="menu" uib-dropdown-toggle class="btn btn-xs">
+						<!--<img src="../images/menu.png"  height="25px">-->
+						<span class="glyphicon glyphicon-option-vertical menu-item"></span>
+					</a>
+
+					<ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="menu">
+						<li role="menuitem">
+							<a href="" ng-click="edit()"><i class="glyphicon glyphicon-edit"></i>&nbsp; Editar</a>
+						</li>
+						<li role="separator" class="divider"></li>
+						<li role="menuitem">
+							<a href="" ng-click="del(note)"><i class="glyphicon glyphicon-trash"></i>&nbsp; Deletar</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<br><br><br>
+		
+		<div class="col-md-12 col-sm-12 col-xs-12 note-content">
+			<div align="center"><b>{{note.title}}</b></div>
+			<br>
+			<div>
+				<p>
+					<!--<render-html html="note.description"></render-html>-->
+					<!--{{note.description}}-->
+					<span ng-bind-html="note.description | asHtml"></span>
+				</p>
+			</div>
+		</div>
+
+		<np-loading loading="loading"></np-loading>
+
+	</div>
+</div>
